@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 teste de diferença
+=======
+testando mudanças que seram mostradas no comando git show
+alteracoes a.txt
+>>>>>>> test_show
