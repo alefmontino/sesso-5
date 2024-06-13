@@ -1,0 +1,189 @@
+----------------------- TERMINAL INFO/COMANDS -------------------------
+
+PS D:\Estudos Git\Sessao 5\1_repo> git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 376 bytes | 376.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/alefmontino/sesso_5.git
+   750a1e0..0e30524  test_show -> test_show
+PS D:\Estudos Git\Sessao 5\1_repo> git diff
+PS D:\Estudos Git\Sessao 5\1_repo> git branch
+  main
+* test_show
+PS D:\Estudos Git\Sessao 5\1_repo> git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+PS D:\Estudos Git\Sessao 5\1_repo> git checkout test_show
+Switched to branch 'test_show'
+Your branch is up to date with 'origin/test_show'.
+PS D:\Estudos Git\Sessao 5\1_repo> git diff
+diff --git a/c.txt b/c.txt
+index e69de29..e791e7c 100644
+--- a/c.txt
++++ b/c.txt
+@@ -0,0 +1 @@
++testando diferença
+\ No newline at end of file
+PS D:\Estudos Git\Sessao 5\1_repo> git commit -a -m "teste"
+[test_show a1d5183] teste
+ 1 file changed, 1 insertion(+)
+PS D:\Estudos Git\Sessao 5\1_repo> git diff main
+diff --git a/a.txt b/a.txt
+index 0288751..7725b4b 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1 +1,2 @@
+-teste de diferença
++testando mudanças que seram mostradas no comando git show
++alteracoes a.txt
+\ No newline at end of file
+diff --git a/b.txt b/b.txt
+index 49ace2c..e69de29 100644
+--- a/b.txt
++++ b/b.txt
+@@ -1 +0,0 @@
+-tag4
+\ No newline at end of file
+diff --git a/c.txt b/c.txt
+index e69de29..e791e7c 100644
+--- a/c.txt
++++ b/c.txt
+@@ -0,0 +1 @@
++testando diferença
+\ No newline at end of file
+PS D:\Estudos Git\Sessao 5\1_repo> git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+PS D:\Estudos Git\Sessao 5\1_repo> git merge test_show
+Auto-merging a.txt
+CONFLICT (content): Merge conflict in a.txt
+Automatic merge failed; fix conflicts and then commit the result.
+PS D:\Estudos Git\Sessao 5\1_repo> git branch 
+* main
+  test_show
+PS D:\Estudos Git\Sessao 5\1_repo> git merge test_show
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+PS D:\Estudos Git\Sessao 5\1_repo> git add .
+PS D:\Estudos Git\Sessao 5\1_repo> git commit -a -m "att"
+[main 5f7a0fd] att
+PS D:\Estudos Git\Sessao 5\1_repo> git status
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS D:\Estudos Git\Sessao 5\1_repo> git diff
+PS D:\Estudos Git\Sessao 5\1_repo> git diff test_show
+diff --git a/a.txt b/a.txt
+index 7725b4b..a1e79db 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1,2 +1,6 @@
++<<<<<<< HEAD
++teste de diferença
++=======
+ testando mudanças que seram mostradas no comando git show
+-alteracoes a.txt
+\ No newline at end of file
++alteracoes a.txt
++>>>>>>> test_show
+diff --git a/b.txt b/b.txt
+index e69de29..49ace2c 100644
+--- a/b.txt
++++ b/b.txt
+@@ -0,0 +1 @@
++tag4
+\ No newline at end of file
+PS D:\Estudos Git\Sessao 5\1_repo> git checkout main
+Already on 'main'
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+PS D:\Estudos Git\Sessao 5\1_repo> git checkout main
+Already on 'main'
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+PS D:\Estudos Git\Sessao 5\1_repo> git push
+Enumerating objects: 15, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (9/9), 1.06 KiB | 1.06 MiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/alefmontino/sesso_5.git
+   1107360..5f7a0fd  main -> main
+PS D:\Estudos Git\Sessao 5\1_repo> git checkout main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+PS D:\Estudos Git\Sessao 5\1_repo> git branch
+* main
+  test_show
+PS D:\Estudos Git\Sessao 5\1_repo> git checkout test_show
+Switched to branch 'test_show'
+Your branch is ahead of 'origin/test_show' by 1 commit.
+  (use "git push" to publish your local commits)
+PS D:\Estudos Git\Sessao 5\1_repo> git merge main
+Updating a1d5183..5f7a0fd
+Fast-forward
+ a.txt | 6 +++++-
+ b.txt | 1 +
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+PS D:\Estudos Git\Sessao 5\1_repo> git status
+On branch test_show
+Your branch is ahead of 'origin/test_show' by 4 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS D:\Estudos Git\Sessao 5\1_repo> git commit -a -m "att"
+On branch test_show
+Your branch is ahead of 'origin/test_show' by 4 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS D:\Estudos Git\Sessao 5\1_repo> git push
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/alefmontino/sesso_5.git
+   0e30524..5f7a0fd  test_show -> test_show
+PS D:\Estudos Git\Sessao 5\1_repo> git diff main
+PS D:\Estudos Git\Sessao 5\1_repo> git diff main
+PS D:\Estudos Git\Sessao 5\1_repo> git short log
+git: 'short' is not a git command. See 'git --help'.
+
+The most similar command is
+        shortlog
+PS D:\Estudos Git\Sessao 5\1_repo> git shortlog 
+Alef Montino (7):
+      add
+      att
+      adicionando conteudo em b por tag 4.0
+      alteracao a.txt
+      alteracoes a.txt
+      teste
+      att
+
+PS D:\Estudos Git\Sessao 5\1_repo> git branch
+  main
+* test_show
+PS D:\Estudos Git\Sessao 5\1_repo> git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS D:\Estudos Git\Sessao 5\1_repo> git shortlog
+Alef Montino (7):
+      add
+      att
+      adicionando conteudo em b por tag 4.0
+      alteracao a.txt
+      alteracoes a.txt
+      teste
+      att
+
+PS D:\Estudos Git\Sessao 5\1_repo> git branch
+* main
+  test_show
